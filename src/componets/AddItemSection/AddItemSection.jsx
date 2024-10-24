@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import MyContext from '../../context/textContext'
 import Button from '../Button/Button'
 import { Input } from '../Input/Input'
 import './style.css'
@@ -5,11 +7,12 @@ import './style.css'
 
 
 export function AddItemSection(props) {
-    const { onClick, onChange, label } = props
+
+    const { handleAddItem, label, handleInput } = useContext(MyContext)
 
     return <div className="todo-control-block">
-        <Input onChange={onChange} label={label} />
-        <Button title='Add' onClick={onClick} />
+        <Input onChange={handleInput} label={label} />
+        <Button title='Add' onClick={handleAddItem} />
     </div>
 
 
